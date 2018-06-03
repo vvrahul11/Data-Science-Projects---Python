@@ -1,0 +1,41 @@
+Answer the following questions about OOP to check your learning progress:
+
+What’s a class?
+What’s an instance?
+What’s the relationship between a class and an instance?
+What’s the Python syntax used for defining a new class?
+What’s the spelling convention for a class name?
+How do you instantiate, or create an instance of, a class?
+How do you access the attributes and behaviors of a class instance?
+What’s a method?
+What’s the purpose of self?
+What’s the purpose of the __init__ method?
+Describe how inheritance helps prevent code duplication.
+Can child classes override properties of their parents?
+
+
+A class is a mechanism used to create new user-defined data structures. It contains data as well as the methods used to process that data.
+An instance is a copy of the class with actual values, literally an object of a specific class.
+While a class is a blueprint used to describe how to make something, instances are objects created from those blueprints.
+class PythonClassName:
+CamelCase notation, starting with a capital letter - i.e., PythonClassName()
+You use the the class name, followed by parentheses. So if the class name is Dog(), an dog instance would be - my_class = Dog().
+With dot notation - e.g., instance_name.attribute_name
+A function that’s defined inside a class.
+The first argument of every method references the current instance of the class, which by convention, is named self. In the __init__ method, self refers to the newly created object; while in other methods, self refers to the instance whose method was called. For more on __init__ vs. self, check out this article.
+The __init__ method initializes an instance of a class.
+Child classes inherit all of the parent’s attributes and behaviors.
+Yes.
+
+
+class A(object):
+    def __init__(self):
+        self.x = 'Hello'
+
+    def method_a(self, foo):
+        print self.x + ' ' + foo
+... the self variable represents the instance of the object itself. Most object-oriented languages pass this as a hidden parameter to the methods defined on an object; Python does not. You have to declare it explicitly. When you create an instance of the A class and call its methods, it will be passed automatically, as in ...
+
+a = A()               # We do not pass any argument to the __init__ method
+a.method_a('Sailor!') # We only pass a single argument
+The __init__ method is roughly what represents a constructor in Python. When you call A() Python creates an object for you, and passes it as the first parameter to the __init__ method. Any additional parameters (e.g., A(24, 'Hello')) will also get passed as arguments--in this case causing an exception to be raised, since the constructor isn't expecting them.
